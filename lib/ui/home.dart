@@ -24,7 +24,7 @@ class _counterState extends State<counter> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(state.counter.toString(),
-              style: TextStyle(fontSize: 80),)
+              style: const TextStyle(fontSize: 80),)
             ],
           );
             }
