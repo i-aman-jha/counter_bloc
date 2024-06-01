@@ -12,7 +12,7 @@ class CounterState extends Equatable{
       counter: counter??this.counter
     );
   }
-  
+
   @override
   List<Object?> get props => [counter];
 }
