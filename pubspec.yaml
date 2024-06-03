@@ -33,6 +33,7 @@ dependencies:
   bloc:
   flutter_bloc:
   equatable:
+  image_picker:
 
 
 

@@ -25,15 +25,44 @@ class _SwitchExampleBlocState extends State<SwitchExampleBloc> {
             children: [
               const Text("Switch"),
               BlocBuilder<SwitchBloc, SwitchState>(
+                buildWhen: (previous, current) =>
+                    previous.isSwitch != current.isSwitch,
                 builder: (context, state) {
                   return Switch(
                       value: state.isSwitch,
                       onChanged: (value) {
-                        context.read<SwitchBloc>().add(EnableOrDisableNotification());
+                        context
+                            .read<SwitchBloc>()
+                            .add(EnableOrDisableNotification());
                       });
                 },
               )
             ],
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          BlocBuilder<SwitchBloc, SwitchState>(
+            builder: (context, state) {
+              return Container(
+                height: 200,
+                color: Colors.red.withOpacity(state.slider),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          BlocBuilder<SwitchBloc, SwitchState>(
+            buildWhen: (previous, current) => previous.slider != current.slider,
+            builder: (context, state) {
+              return Slider(
+                  value: state.slider,
+                  onChanged: (value) {
+                    print(value);
+                    context.read<SwitchBloc>().add(SliderEvent(slider: value));
+                  });
+            },
           )
         ],
       ),

@@ -1,8 +1,18 @@
-import 'package:equatable/equatable.dart';
+// import 'package:equatable/equatable.dart';
 
 abstract class SwitchEvents {
   SwitchEvents();
   @override
   List<Object> get Props => [];
 }
-class EnableOrDisableNotification extends SwitchEvents{}
+
+class EnableOrDisableNotification extends SwitchEvents {}
+
+class SliderEvent extends SwitchEvents {
+  double slider;
+
+  SliderEvent({required this.slider});
+
+  @override
+  List<Object> get props => [slider];
+}

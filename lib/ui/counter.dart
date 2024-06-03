@@ -18,33 +18,30 @@ class _counterState extends State<counter> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          BlocBuilder<CounterBloc,CounterState>(
-            builder: (context,state){
-              return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(state.counter.toString(),
-              style: const TextStyle(fontSize: 80),)
-            ],
-          );
-            }
-            ),
-
+          BlocBuilder<CounterBloc, CounterState>(builder: (context, state) {
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  state.counter.toString(),
+                  style: const TextStyle(fontSize: 80),
+                )
+              ],
+            );
+          }),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: (){
-                  context.read<CounterBloc>().add(IncrementCounter());
-                }, 
-                child: const Text("increment")
-                ),
+                  onPressed: () {
+                    context.read<CounterBloc>().add(IncrementCounter());
+                  },
+                  child: const Text("increment")),
               ElevatedButton(
-                onPressed: (){
-                  context.read<CounterBloc>().add(DecrementCounter());
-                }, 
-                child: const Text("decrement")
-                ),
+                  onPressed: () {
+                    context.read<CounterBloc>().add(DecrementCounter());
+                  },
+                  child: const Text("decrement")),
             ],
           )
         ],
